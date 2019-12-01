@@ -8,16 +8,15 @@ const Home = (props) => (
   
           
   <div>
-    <title>CHELHACK Store</title>
     <div className="header">
     <div className="logo"><a href="/"><img src="img/logo-inner.png" alt=""/></a></div>
     </div>
     <div className="banner"><a href="/black-friday">
               <picture className="banner">
-                <source className="banner" srcset="img/photos/banner.png" data-main="data-main"/>
+                <source className="banner" srcset="img/photos/banner-smaller.png" data-main="data-main"/>
                 <source srcset="img/photos/new-main-slider-img-4-1.jpg"/><img/>
               </picture></a></div>
-    <LayoutHead title="CHEL_HACK / store"/> 
+    <LayoutHead title="BLACK FRIDAY / store"/>
     <div className="hero">
 
         <div id="grid">
@@ -29,11 +28,6 @@ const Home = (props) => (
 
 
     <style jsx>{`
-    
-    .oldprice {
-      text-decoration: line-through;
-    }
-    
     .banner img{
       margin-left:-8px;
       margin-right:-8px;

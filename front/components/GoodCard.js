@@ -36,6 +36,9 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         flexGrow: 1
+    },
+    oldprice: {
+        textDecoration: 'line-through'
     }
 }));
 
@@ -46,22 +49,24 @@ const GoodCard = (props) => {
 
     return (
         <Card className={classes.card}>
-            <CardHeader
-
-                title={props.title}
-                subheader={props.price + "\t" + props.finalPrice}
-            />
+            
             <CardMedia
                 className={classes.media}
                 image={`http://chelhack.deletestaging.com/${props.imageUrl}`}
                 title="Paella dish"
             />
-            <CardContent className={classes.content}>
+            <CardHeader
+
+title={props.title}
+subheader={<><strike>{props.price}</strike>  {"\t" + props.finalPrice + "\t–"+Math.ceil((1-props.finalPrice/props.price)*100)+"%"}</>} 
+
+/>
+            /* <CardContent className={classes.content}>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {JSON.stringify(props.title)}
+                    {JSON.stringify(Math.ceil((1-props.finalPrice/props.price)*100))}
                 </Typography>
                 
-            </CardContent>
+            </CardContent>*/
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     <AddShoppingCart />
