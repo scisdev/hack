@@ -37,9 +37,6 @@ const useStyles = makeStyles(theme => ({
     content: {
         flexGrow: 1
     },
-    oldprice: {
-        textDecoration: 'line-through'
-    }
 }));
 
 
@@ -61,12 +58,7 @@ title={props.title}
 subheader={<><strike>{props.price}</strike>  {"\t" + props.finalPrice + "\t–"+Math.ceil((1-props.finalPrice/props.price)*100)+"%"}</>} 
 
 />
-            /* <CardContent className={classes.content}>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {JSON.stringify(Math.ceil((1-props.finalPrice/props.price)*100))}
-                </Typography>
-                
-            </CardContent>*/
+            
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
                     <AddShoppingCart />
