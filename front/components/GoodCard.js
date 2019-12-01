@@ -12,10 +12,13 @@ import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles(theme => ({
     card: {
-        maxWidth: 345,
+        display: 'flex',
+        flexDirection: 'column',
+        minWidth: '250px',
+        width: '100%'
     },
     media: {
-        height: '200px',
+        height: '210px',
         backgroundSize: 'contain'
     },
     expand: {
@@ -31,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     avatar: {
         backgroundColor: red[500],
     },
+    content: {
+        flexGrow: 1
+    }
 }));
 
 
@@ -43,17 +49,18 @@ const GoodCard = (props) => {
             <CardHeader
 
                 title={props.title}
-                subheader={props.price}
+                subheader={props.price + "\t" + props.finalPrice}
             />
             <CardMedia
                 className={classes.media}
                 image={`http://chelhack.deletestaging.com/${props.imageUrl}`}
                 title="Paella dish"
             />
-            <CardContent>
+            <CardContent className={classes.content}>
                 <Typography variant="body2" color="textSecondary" component="p">
                     {JSON.stringify(props.title)}
                 </Typography>
+                
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
