@@ -5,12 +5,12 @@ import GoodCard from "../components/GoodCard";
 
 
 const Home = (props) => (
-  <div>
+    <div>
     <LayoutHead />
     <div className="hero">
 
         <div id="grid">
-          {props.goods.data.map(
+          {props.data.map(
               (good, index) => <GoodCard key={index} {...good} />
           )}
         </div>
@@ -32,12 +32,13 @@ const Home = (props) => (
 );
 
 Home.getInitialProps = async function() {
-    //const res = await fetch('http://chelhack.deletestaging.com/goods');
-    const res = await fetch('http://localhost:8080/api');
-    const data = await res.json();
-
-    // console.log(`get Data `, data);
-
+    let data;
+    try {
+        const res = await fetch('http://localhost:8080/api');
+        data = await res.json();
+    } catch(error){
+        data=[]
+    }
     return {
         goods: data
     };
