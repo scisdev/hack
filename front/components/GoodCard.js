@@ -53,7 +53,7 @@ const GoodCard = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image={`http://chelhack.deletestaging.com/${props.imageUrl}`}
+                image={`http://chelhack.deletestaging.com/${props.img}`}
                 title="Paella dish"
             />
             <CardContent className={classes.content}>
