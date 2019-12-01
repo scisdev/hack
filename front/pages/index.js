@@ -10,7 +10,7 @@ const Home = (props) => (
     <div className="hero">
 
         <div id="grid">
-          {props.data.map(
+          {props.goods.map(
               (good, index) => <GoodCard key={index} {...good} />
           )}
         </div>
