@@ -1,4 +1,4 @@
-package com.hawken.testdb;
+package com.hawken.dbcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,12 +28,12 @@ public class DBController {
 	private ProductServiceImpl productService;
 	
 	
-	@GetMapping("/test/users/get/{id}")
+	@GetMapping("/api/db/users/get/{id}")
 	public User getUser(@PathVariable Integer id) {
 		return userService.getUserById(id);
 	}
 	
-	@PostMapping("/test/users/add")
+	@PostMapping("/api/db/users/add")
 	public String saveUser(
 			@RequestParam String fn,
 			@RequestParam String ln,
@@ -49,12 +49,12 @@ public class DBController {
 		return "Saved";
 	}
 	
-	@GetMapping("/test/orders/get/{id}")
+	@GetMapping("/api/db/orders/get/{id}")
 	public Order getOrder(@PathVariable Integer id) {
 		return orderService.getOrderById(id);
 	}
 	
-	@PostMapping("/test/orders/add")
+	@PostMapping("/api/db/orders/add")
 	public String createOrder(@RequestParam Integer withUser) {
 		Order order = new Order();
 		order.setUser(userService.getUserById(withUser));
@@ -62,7 +62,7 @@ public class DBController {
 		return "Success";
 	}
 	
-	@PostMapping("/test/prods/add")
+	@PostMapping("/api/db/prods/add")
 	public String createProd(@RequestParam String name,
 							@RequestParam Integer withOrder) {
 		Product prod = new Product();
@@ -76,7 +76,7 @@ public class DBController {
 	}
 	
 	
-	@GetMapping("/test/prods/get/{id}")
+	@GetMapping("/api/db/prods/get/{id}")
 	public Product getProd(@PathVariable Integer id) {
 		return productService.findProdById(id);
 	}
